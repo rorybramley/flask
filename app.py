@@ -26,10 +26,10 @@ def consultant():
 
 @app.route('/client')
 def client():
-	 clt = request.args.get('client_industry')
-	 clientdetails = Client.query.filter_by(industry = clt).all()
-	 clt_result = client_schema.dump(clientdetails)
-	 return jsonify(clt_result), 200
+	clt = request.args.get('client_industry')
+	clientdetails = Client.query.filter_by(industry = clt).all()
+	clt_result = client_schema.dump(clientdetails)
+	return jsonify(clt_result), 200
 
 # table in SQLite for client
 # BP, Shell, HSBC,
@@ -45,11 +45,11 @@ class Cohort(db.Model):
 	specialism = Column(String)
 
 class Client(db.Model):
-	 __tablename__ = 'client'
-	 id = Column(Integer, primary_key = True)
-	 name = Column(String, unique = True)
-	 industry = Column(String)
-	 headoffice = Column(String)
+	__tablename__ = 'client'
+	id = Column(Integer, primary_key = True)
+	name = Column(String, unique = True)
+	industry = Column(String)
+	headoffice = Column(String)
 
 
 
